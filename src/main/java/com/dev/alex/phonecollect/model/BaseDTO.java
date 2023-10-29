@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class BaseDTO {
-    private Long id;
+public abstract class BaseDTO {
+
 }
