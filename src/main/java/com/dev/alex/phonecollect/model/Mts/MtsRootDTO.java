@@ -5,5 +5,5 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties (ignoreUnknown = true)
 public class MtsRootDTO extends BaseDTO {
-
+  // todo добавить логику
 }
