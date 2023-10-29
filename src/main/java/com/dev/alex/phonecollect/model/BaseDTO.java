@@ -1,5 +1,12 @@
 package com.dev.alex.phonecollect.model;
 
-public class BaseDTO {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class BaseDTO {
+    private Long id;
 }
