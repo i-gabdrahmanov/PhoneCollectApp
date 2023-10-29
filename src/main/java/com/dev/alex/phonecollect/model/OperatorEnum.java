@@ -14,4 +14,9 @@ public enum OperatorEnum {
     private final String code;
     private final String name;
     private final String url;
+
+    @Override
+    public String toString() {
+        return getName() + " " + getUrl();
+    }
 }
