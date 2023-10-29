@@ -4,6 +4,8 @@ import com.dev.alex.phonecollect.model.Beeline.BeelineListsDTO;
 import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.SearchSpaceListDTO;
+import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
+import com.dev.alex.phonecollect.model.Mts.MtsRootDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -50,6 +52,23 @@ public class DaoDTOPhone {
                                 phone.setRequestDate(LocalDateTime.now());
                                 return phone;
                             }))
+                    .collect(Collectors.toList());
+        } else {
+            throw new RuntimeException();
+        }
+    }
+
+    public static List<Phone> mtsToEntity(List<MtsNumbersDTO> dtoList) {
+        if (dtoList != null) {
+            return dtoList.stream()
+                    .map(ph -> {
+                        Phone phone = new Phone();
+                        phone.setCost(ph.getPriceRub().intValue());
+                        phone.setPhoneNumber(ph.getMsisdn());
+                        phone.setOperator(OperatorEnum.MTS.getName());
+                        phone.setRequestDate(LocalDateTime.now());
+                        return phone;
+                    })
                     .collect(Collectors.toList());
         } else {
             throw new RuntimeException();

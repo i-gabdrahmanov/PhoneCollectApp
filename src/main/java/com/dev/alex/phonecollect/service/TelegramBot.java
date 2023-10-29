@@ -51,6 +51,9 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/megafon":
                     recieveContent(chatId, OperatorEnum.MEGAFON);
                     break;
+                case "/mts":
+                    recieveContent(chatId, OperatorEnum.MTS);
+                    break;
                 default:
                     sendMessage(chatId, "Unsupported command", null);
             }

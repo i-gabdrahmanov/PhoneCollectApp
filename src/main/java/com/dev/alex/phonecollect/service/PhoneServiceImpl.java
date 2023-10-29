@@ -3,6 +3,8 @@ package com.dev.alex.phonecollect.service;
 import com.dev.alex.phonecollect.model.DaoDTOPhone;
 import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
+import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
+import com.dev.alex.phonecollect.model.Mts.MtsRootDTO;
 import com.dev.alex.phonecollect.model.OperatorEnum;
 import com.dev.alex.phonecollect.model.Phone;
 import com.dev.alex.phonecollect.repository.PhoneRepository;
@@ -41,28 +43,36 @@ public class PhoneServiceImpl implements PhoneService {
             throw new RuntimeException(e);
         }
         switch (operatorEnum) {
-            case BEELINE -> parseBeeline(jsonString);
-            case MEGAFON -> parseMegafon(jsonString);
+            case BEELINE -> parseBeeline(jsonString, operatorEnum);
+            case MEGAFON -> parseMegafon(jsonString, operatorEnum);
+            case MTS -> parseMts(jsonString, operatorEnum);
             default -> throw new RuntimeException("Unsupported operator");
         }
     }
 
-    private void parseBeeline(String json) {
+    private void parseBeeline(String json, OperatorEnum operator) {
         List<Phone> phones;
         BeelineRootDTO dto = jsonParser.parseString(json.substring(1), BeelineRootDTO.class);
-        OperatorEnum operator = OperatorEnum.BEELINE;
         if (needUpdateReposinory(operator) && dto != null) {
             phones = DaoDTOPhone.beelineToEntity(dto);
             transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
         }
     }
 
-    private void parseMegafon(String json) {
+    private void parseMegafon(String json, OperatorEnum operator) {
         List<Phone> phones;
         MegafonRootDTO dto = jsonParser.parseString(json, MegafonRootDTO.class);
-        OperatorEnum operator = OperatorEnum.MEGAFON;
         if (needUpdateReposinory(operator) && dto != null) {
             phones = DaoDTOPhone.megafonToEntity(dto);
+            transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
+        }
+    }
+
+    private void parseMts(String json, OperatorEnum operator) {
+        List<Phone> phones;
+        List<MtsNumbersDTO> dto = jsonParser.parseString(json, null);
+        if (needUpdateReposinory(operator) && dto != null) {
+            phones = DaoDTOPhone.mtsToEntity(dto);
             transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
         }
     }
