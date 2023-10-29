@@ -8,5 +8,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public abstract class BaseDTO {
-
+    // возможно добавление айди
 }
