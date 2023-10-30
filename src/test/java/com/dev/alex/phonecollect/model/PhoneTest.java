@@ -20,7 +20,7 @@ public class PhoneTest {
         Phone second = new Phone();
         first.setPhoneNumber("333333333");
         second.setPhoneNumber("333333333");
-        Assertions.assertTrue(first.equals(second));
+        Assertions.assertEquals(first, second);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class PhoneTest {
         Phone second = new Phone();
         first.setPhoneNumber("333333332");
         second.setPhoneNumber("333333333");
-        Assertions.assertFalse(first.equals(second));
+        Assertions.assertNotEquals(first, second);
     }
 
     @Test
@@ -44,7 +44,23 @@ public class PhoneTest {
         Assertions.assertEquals(2, phones.stream().distinct().toList().size());
         Set<Phone> uniquePhones = new HashSet<>(phones);
         Assertions.assertEquals(2, uniquePhones.size(), "Размер множества уникальных телефонов не равен 2");
-
     }
 
+    @Test
+    void hasCodeEquals (){
+        Phone first = new Phone();
+        Phone second = new Phone();
+        first.setPhoneNumber("333333333");
+        second.setPhoneNumber("333333333");
+        Assertions.assertEquals(first.hashCode(), second.hashCode());
+    }
+
+    @Test
+    void hasNotCodeEquals (){
+        Phone first = new Phone();
+        Phone second = new Phone();
+        first.setPhoneNumber("333333332");
+        second.setPhoneNumber("333333333");
+        Assertions.assertNotEquals(first.hashCode(), second.hashCode());
+    }
 }
