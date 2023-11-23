@@ -37,7 +37,7 @@ public class DaoPhone {
     }
 */
 
-    public static List<Phone> beelineToEntity(BeelineRootDTO dtoList) {
+    public List<Phone> beelineToEntity(BeelineRootDTO dtoList) {
         if (dtoList != null) {
             return dtoList.getNumbers().stream()
                     .flatMap(dto -> dto.getNumbers().stream()
@@ -55,7 +55,7 @@ public class DaoPhone {
         }
     }
 
-    public static List<Phone> mtsToEntity(List<MtsNumbersDTO> dtoList) {
+    public List<Phone> mtsToEntity(List<MtsNumbersDTO> dtoList) {
         if (dtoList != null) {
             return dtoList.stream()
                     .map(ph -> {
@@ -72,7 +72,7 @@ public class DaoPhone {
         }
     }
 
-    public static List<Phone> megafonToEntity(MegafonRootDTO dto) {
+    public List<Phone> megafonToEntity(MegafonRootDTO dto) {
         /*Map<Integer, Integer> ssl = dtoList.stream().map(MegafonRootDTO::getGetSearchSpaceList)
                .collect(Collectors.toMap(SearchSpaceListDTO::getNmLisClassId, SearchSpaceListDTO::getNmPrice));*/
      /*   Map<Integer, Integer> ssl = dtoList.stream()

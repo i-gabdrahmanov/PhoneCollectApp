@@ -14,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Component
 public class TelegramBot extends TelegramLongPollingBot {
@@ -29,7 +30,9 @@ public class TelegramBot extends TelegramLongPollingBot {
     @Autowired
     ExportService exportService;
 
-    private OperatorEnum operatorEnum;
+
+    @Autowired
+    ParserService parserService;
 
     public TelegramBot(BotConfig config) {
         this.config = config;
@@ -54,16 +57,20 @@ public class TelegramBot extends TelegramLongPollingBot {
                 case "/mts":
                     recieveContent(chatId, OperatorEnum.MTS);
                     break;
+                case "/test":
+                    startCommandRecieved(chatId, "Test complete");
+                    break;
                 default:
                     sendMessage(chatId, "Unsupported command", null);
             }
         }
     }
 
-    private void recieveContent(Long chatId, OperatorEnum operatorEnum) {
-        phoneService.collectNumbers(operatorEnum);
-        String messageToSend = operatorEnum.getName();
-        File file = exportService.exportToXls(operatorEnum, LocalDateTime.now().minusDays(2));
+    private void recieveContent(Long chatId, OperatorEnum operator) {
+        String messageToSend = operator.getName();
+        String jsonString = phoneService.collectNumbers(operator);
+        List<Phone> phones = parserService.parse(jsonString, operator);
+        File file = exportService.exportToXls(phones, operator, LocalDateTime.now().minusDays(2));
         sendMessage(chatId, messageToSend, file);
     }
 

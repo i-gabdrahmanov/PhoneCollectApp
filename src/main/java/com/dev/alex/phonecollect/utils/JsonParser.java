@@ -2,12 +2,11 @@ package com.dev.alex.phonecollect.utils;
 
 
 import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
-import com.dev.alex.phonecollect.model.Mts.MtsRootDTO;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class JsonParser {
 
     public <T> T parseString(String jsonString, Class<T> clazz) {

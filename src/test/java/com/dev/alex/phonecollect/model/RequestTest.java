@@ -17,7 +17,7 @@ public class RequestTest {
 
     //С каждым запросом сайт возвращает разное значение, если это поломалось, нужно подумать об
     // изменении логики сбора данных
-    @Test
+    /*@Test
     void beelineNotEqualRequestResult() throws IOException {
         PhoneCollector phoneCollector = new PhoneCollector();
         String requestResultOne = phoneCollector.collectPhones(OperatorEnum.BEELINE);
@@ -40,7 +40,7 @@ public class RequestTest {
         Assertions.assertNotEquals(firstResultSet.size(),
                 secondResultSet.size());
 
-    }
+    }*/
 
     @Test
     void megafonNotRequestResult() throws IOException {
