@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ThreadPoolExecutor;
 
 public class PhoneTest {
 
@@ -47,7 +48,7 @@ public class PhoneTest {
     }
 
     @Test
-    void hasCodeEquals (){
+    void hasCodeEquals () {
         Phone first = new Phone();
         Phone second = new Phone();
         first.setPhoneNumber("333333333");
@@ -56,7 +57,7 @@ public class PhoneTest {
     }
 
     @Test
-    void hasNotCodeEquals (){
+    void hasNotCodeEquals () {
         Phone first = new Phone();
         Phone second = new Phone();
         first.setPhoneNumber("333333332");

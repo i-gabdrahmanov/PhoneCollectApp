@@ -1,10 +1,9 @@
 package com.dev.alex.phonecollect.service;
 
-import com.dev.alex.phonecollect.model.DaoDTOPhone;
+import com.dev.alex.phonecollect.model.DaoPhone;
 import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
 import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
-import com.dev.alex.phonecollect.model.Mts.MtsRootDTO;
 import com.dev.alex.phonecollect.model.OperatorEnum;
 import com.dev.alex.phonecollect.model.Phone;
 import com.dev.alex.phonecollect.repository.PhoneRepository;
@@ -54,7 +53,7 @@ public class PhoneServiceImpl implements PhoneService {
         List<Phone> phones;
         BeelineRootDTO dto = jsonParser.parseString(json.substring(1), BeelineRootDTO.class);
         if (needUpdateReposinory(operator) && dto != null) {
-            phones = DaoDTOPhone.beelineToEntity(dto);
+            phones = DaoPhone.beelineToEntity(dto);
             transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
         }
     }
@@ -63,7 +62,7 @@ public class PhoneServiceImpl implements PhoneService {
         List<Phone> phones;
         MegafonRootDTO dto = jsonParser.parseString(json, MegafonRootDTO.class);
         if (needUpdateReposinory(operator) && dto != null) {
-            phones = DaoDTOPhone.megafonToEntity(dto);
+            phones = DaoPhone.megafonToEntity(dto);
             transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
         }
     }
@@ -72,7 +71,7 @@ public class PhoneServiceImpl implements PhoneService {
         List<Phone> phones;
         List<MtsNumbersDTO> dto = jsonParser.parseString(json, null);
         if (needUpdateReposinory(operator) && dto != null) {
-            phones = DaoDTOPhone.mtsToEntity(dto);
+            phones = DaoPhone.mtsToEntity(dto);
             transactionTemplate.execute(status -> phoneRepository.saveAll(phones));
         }
     }

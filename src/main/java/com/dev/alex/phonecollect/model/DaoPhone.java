@@ -1,15 +1,12 @@
 package com.dev.alex.phonecollect.model;
 
-import com.dev.alex.phonecollect.model.Beeline.BeelineListsDTO;
 import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
 import com.dev.alex.phonecollect.model.Megafon.SearchSpaceListDTO;
 import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
-import com.dev.alex.phonecollect.model.Mts.MtsRootDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -17,7 +14,7 @@ import java.util.stream.Collectors;
 import static org.apache.commons.collections4.CollectionUtils.collect;
 
 @Component
-public class DaoDTOPhone {
+public class DaoPhone {
 
     /*public static List<Phone> beelineToEntity(BeelineRootDTO dtoList) {
         List<Phone> phones = new ArrayList<>();
