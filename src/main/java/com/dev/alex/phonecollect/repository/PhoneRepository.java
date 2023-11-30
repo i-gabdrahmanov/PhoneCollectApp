@@ -3,7 +3,6 @@ package com.dev.alex.phonecollect.repository;
 import com.dev.alex.phonecollect.model.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
@@ -20,4 +19,5 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
 
     List<Phone> findAllByOperator(String operator);
 
+    List<Phone> findAllByRequestDateIsBefore(LocalDateTime requestDate);
 }

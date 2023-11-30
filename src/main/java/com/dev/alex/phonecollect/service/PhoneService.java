@@ -12,4 +12,6 @@ public interface PhoneService {
     void collectAllNumbers();
 
     File getFileForMessage(OperatorEnum operator);
+
+    void deleteOldPhones();
 }

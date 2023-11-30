@@ -111,6 +111,12 @@ public class PhoneServiceImpl implements PhoneService {
         return exportService.exportToXls(phones, operator);
     }
 
+    @Override
+    public void deleteOldPhones() {
+        List<Phone> listForDelete = phoneRepository.findAllByRequestDateIsBefore(LocalDateTime.now().minusDays(7));
+        phoneRepository.deleteAll(listForDelete);
+    }
+
     private List<Phone> getPhones(OperatorEnum operator) {
         return phoneRepository.findAllByOperatorAndRequestDateIsAfter(operator.getName(), LocalDateTime.now().minusDays(2));
     }

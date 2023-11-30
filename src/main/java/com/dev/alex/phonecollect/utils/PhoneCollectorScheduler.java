@@ -22,4 +22,11 @@ public class PhoneCollectorScheduler {
         phoneService.collectAllNumbers();
         System.out.println("All numbers collected");
     }
+
+    @Scheduled(cron = "0 0 2 ? * MON")
+
+    private void deleteOldPhones() {
+        phoneService.collectAllNumbers();
+        System.out.println("Old Phones deleted");
+    }
 }
