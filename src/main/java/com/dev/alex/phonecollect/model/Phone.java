@@ -25,7 +25,7 @@ public class Phone {
     @Column
     private Long id;
 
-    @Column(name = "phone_number", nullable = false)
+    @Column(name = "phone_number", nullable = false, unique = true)
     @JsonProperty("value")
     private String phoneNumber;
 

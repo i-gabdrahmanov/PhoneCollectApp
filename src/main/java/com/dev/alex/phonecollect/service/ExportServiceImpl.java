@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,7 +23,7 @@ public class ExportServiceImpl implements ExportService {
     PhoneRepository repository;
 
     @Override
-    public File exportToXls(List<Phone> phones, OperatorEnum operator, LocalDateTime requestDate) {
+    public File exportToXls(List<Phone> phones, OperatorEnum operator) {
       // List<Phone> phones =  repository.findAllByOperatorAndRequestDateIsAfter(operator.getName(), requestDate); // parameter for date needed
         Workbook workbook = new XSSFWorkbook();
         Sheet sheet = workbook.createSheet();

@@ -18,4 +18,6 @@ public interface PhoneRepository extends JpaRepository<Phone, Long> {
     @Query(value = "select request_date from phones where operator = ?1 order by id desc limit 1", nativeQuery = true)
     Optional<Timestamp> getLastUpdateDateTime(String operator);
 
+    List<Phone> findAllByOperator(String operator);
+
 }
