@@ -13,9 +13,10 @@ public class PrepareHttpsConnection {
 
     public static final int CONNECTION_TIMEOUT = 4000;
 
-    public static HttpsURLConnection prepareConnection(OperatorEnum operator) {
+    public HttpsURLConnection prepareConnection(OperatorEnum operator) {
         final URL url;
-        final HttpsURLConnection con;
+        HttpsURLConnection con;
+
         try {
             url = new URL(operator.getUrl());
         } catch (MalformedURLException e) {

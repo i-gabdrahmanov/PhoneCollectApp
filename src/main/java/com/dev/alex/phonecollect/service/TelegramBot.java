@@ -14,6 +14,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.io.File;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -68,8 +69,15 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private void recieveContent(Long chatId, OperatorEnum operator) {
         String messageToSend = operator.getName();
-        String jsonString = phoneService.collectNumbers(operator);
-        List<Phone> phones = parserService.parse(jsonString, operator);
+       // String jsonString = phoneService.collectNumbers(operator);
+      // List<Phone> phones = parserService.parse(jsonString, operator);
+        List<String> jsonStrings = phoneService.collectNumbers(operator, true);
+        List<Phone> phones = new ArrayList<>();
+        for (String json:jsonStrings) {
+            if (!json.isEmpty()) {
+                phones.addAll(parserService.parse(json, operator));
+            }
+        }
         File file = exportService.exportToXls(phones, operator, LocalDateTime.now().minusDays(2));
         sendMessage(chatId, messageToSend, file);
     }

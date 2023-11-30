@@ -15,8 +15,10 @@ public class PhoneCollector {
 
 
     public String collectPhones(@NotNull OperatorEnum operatorEnum) throws IOException {
+        PrepareHttpsConnection prepareHttpsConnection = new PrepareHttpsConnection();
 
-        final HttpsURLConnection con = PrepareHttpsConnection.prepareConnection(operatorEnum);
+
+        HttpsURLConnection con = prepareHttpsConnection.prepareConnection(operatorEnum);
 
         try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
             String inputLine;

@@ -29,17 +29,18 @@ public class ParserServiceImpl implements ParserService {
     public List<Phone> parse(String json, OperatorEnum operator) {
         List<Phone> phones = new ArrayList<>();
         switch (operator) {
-            case BEELINE:
+            case BEELINE -> {
                 BeelineRootDTO dtoBeeline = jsonParser.parseString(json.substring(1), BeelineRootDTO.class);
                 phones = dao.beelineToEntity(dtoBeeline);
-                break;
-            case MEGAFON:
+            }
+            case MEGAFON -> {
                 MegafonRootDTO dtoMegafon = jsonParser.parseString(json, MegafonRootDTO.class);
                 phones = dao.megafonToEntity(dtoMegafon);
-                break;
-            case MTS:
+            }
+            case MTS -> {
                 List<MtsNumbersDTO> dtoMts = jsonParser.parseString(json, null);
                 phones = dao.mtsToEntity(dtoMts);
+            }
         }
         return phones;
     }
