@@ -1,20 +1,16 @@
 package com.dev.alex.phonecollect.service;
 
-import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
+import com.dev.alex.phonecollect.dto.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.model.DaoPhone;
-import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
-import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
+import com.dev.alex.phonecollect.dto.Megafon.MegafonRootDTO;
+import com.dev.alex.phonecollect.dto.Mts.MtsNumbersDTO;
 import com.dev.alex.phonecollect.model.OperatorEnum;
 import com.dev.alex.phonecollect.model.Phone;
 import com.dev.alex.phonecollect.utils.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service

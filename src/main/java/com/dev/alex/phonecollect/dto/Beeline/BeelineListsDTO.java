@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Beeline;
+package com.dev.alex.phonecollect.dto.Beeline;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;

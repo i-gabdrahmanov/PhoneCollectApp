@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Megafon;
+package com.dev.alex.phonecollect.dto.Mts;
 
 import com.dev.alex.phonecollect.model.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,12 +11,11 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
+@JsonIgnoreProperties (ignoreUnknown = true)
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = false)
-public class MegafonRootDTO extends BaseDTO {
-    @JsonProperty(value = "getSearchSpaceList")
-    private List<SearchSpaceListDTO> searchSpaceList;
-    private List<MegafonNumbersDTO> numbers;
+@Data
+public class MtsRootDTO extends BaseDTO {
+    @JsonProperty
+    private List<MtsNumbersDTO> numbers;
 }

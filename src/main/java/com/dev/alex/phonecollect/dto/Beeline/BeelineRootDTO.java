@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Mts;
+package com.dev.alex.phonecollect.dto.Beeline;
 
 import com.dev.alex.phonecollect.model.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -11,11 +11,12 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
-@JsonIgnoreProperties (ignoreUnknown = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
-public class MtsRootDTO extends BaseDTO {
-    @JsonProperty
-    private List<MtsNumbersDTO> numbers;
+@JsonIgnoreProperties (ignoreUnknown = true)
+@NoArgsConstructor
+@AllArgsConstructor
+public class BeelineRootDTO extends BaseDTO {
+
+    @JsonProperty(value = "numbers")
+    private List<BeelineListsDTO> numbers;
 }

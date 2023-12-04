@@ -1,7 +1,7 @@
 package com.dev.alex.phonecollect.utils;
 
 
-import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
+import com.dev.alex.phonecollect.dto.Mts.MtsNumbersDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;
 

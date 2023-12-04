@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Beeline;
+package com.dev.alex.phonecollect.dto.Megafon;
 
 import com.dev.alex.phonecollect.model.BaseDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,11 +12,11 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
-@JsonIgnoreProperties (ignoreUnknown = true)
-@NoArgsConstructor
 @AllArgsConstructor
-public class BeelineRootDTO extends BaseDTO {
-
-    @JsonProperty(value = "numbers")
-    private List<BeelineListsDTO> numbers;
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = false)
+public class MegafonRootDTO extends BaseDTO {
+    @JsonProperty(value = "getSearchSpaceList")
+    private List<SearchSpaceListDTO> searchSpaceList;
+    private List<MegafonNumbersDTO> numbers;
 }

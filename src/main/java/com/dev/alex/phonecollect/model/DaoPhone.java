@@ -1,9 +1,9 @@
 package com.dev.alex.phonecollect.model;
 
-import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
-import com.dev.alex.phonecollect.model.Megafon.MegafonRootDTO;
-import com.dev.alex.phonecollect.model.Megafon.SearchSpaceListDTO;
-import com.dev.alex.phonecollect.model.Mts.MtsNumbersDTO;
+import com.dev.alex.phonecollect.dto.Beeline.BeelineRootDTO;
+import com.dev.alex.phonecollect.dto.Megafon.MegafonRootDTO;
+import com.dev.alex.phonecollect.dto.Megafon.SearchSpaceListDTO;
+import com.dev.alex.phonecollect.dto.Mts.MtsNumbersDTO;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

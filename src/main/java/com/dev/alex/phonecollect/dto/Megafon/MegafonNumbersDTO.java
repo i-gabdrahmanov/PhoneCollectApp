@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Megafon;
+package com.dev.alex.phonecollect.dto.Megafon;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

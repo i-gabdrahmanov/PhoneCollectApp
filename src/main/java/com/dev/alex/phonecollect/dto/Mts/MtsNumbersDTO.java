@@ -1,4 +1,4 @@
-package com.dev.alex.phonecollect.model.Mts;
+package com.dev.alex.phonecollect.dto.Mts;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;

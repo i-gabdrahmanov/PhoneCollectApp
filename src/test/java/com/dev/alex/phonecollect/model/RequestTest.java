@@ -1,17 +1,10 @@
 package com.dev.alex.phonecollect.model;
 
-import com.dev.alex.phonecollect.model.Beeline.BeelineRootDTO;
 import com.dev.alex.phonecollect.service.PhoneCollector;
-import com.dev.alex.phonecollect.utils.JsonParser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class RequestTest {
 
