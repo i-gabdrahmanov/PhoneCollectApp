@@ -48,10 +48,10 @@ public class Phone {
     }
 
     public Phone() {
-        this.phoneNumber = ""; // или другое значение по умолчанию, если необходимо
-        this.operator = ""; // значение по умолчанию
-        this.cost = 0; // значение по умолчанию
-        this.requestDate = LocalDateTime.now(); // значение по умолчанию, например, текущая дата и время
+        this.phoneNumber = "";
+        this.operator = "";
+        this.cost = 0;
+        this.requestDate = LocalDateTime.now();
     }
 
     @Override
