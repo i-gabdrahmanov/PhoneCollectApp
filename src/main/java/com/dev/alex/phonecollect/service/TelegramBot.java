@@ -59,6 +59,7 @@ public class TelegramBot extends TelegramLongPollingBot {
         sendMessage(chatId, messageToSend, file);
     }
 
+    @Override
     public String getBotToken() {
         return config.getToken();
     }
