@@ -2,6 +2,7 @@ package com.dev.alex.phonecollect.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
@@ -17,30 +18,23 @@ public class PhoneTest {
     }
     @Test
     void testEquals(){
-        Phone first = new Phone();
-        Phone second = new Phone();
-        first.setPhoneNumber("333333333");
-        second.setPhoneNumber("333333333");
+        Phone first = new Phone.Builder().phoneNumber("333333333").build();
+        Phone second = new Phone.Builder().phoneNumber("333333333").build();
         Assertions.assertEquals(first, second);
     }
 
     @Test
     void testNotEquals() {
-        Phone first = new Phone();
-        Phone second = new Phone();
-        first.setPhoneNumber("333333332");
-        second.setPhoneNumber("333333333");
+        Phone first = new Phone.Builder().phoneNumber("333333332").build();
+        Phone second = new Phone.Builder().phoneNumber("333333333").build();
         Assertions.assertNotEquals(first, second);
     }
 
     @Test
     void distinctListTest() {
-        Phone first = new Phone();
-        Phone second = new Phone();
-        Phone third = new Phone();
-        first.setPhoneNumber("333333333");
-        second.setPhoneNumber("333333333");
-        third.setPhoneNumber("333333334");
+        Phone first =new Phone.Builder().phoneNumber("333333333").build();;
+        Phone second = new Phone.Builder().phoneNumber("333333333").build();;
+        Phone third = new Phone.Builder().phoneNumber("333333334").build();;
         List<Phone> phones = List.of(first, second, third);
         Assertions.assertEquals(2, phones.stream().distinct().toList().size());
         Set<Phone> uniquePhones = new HashSet<>(phones);
@@ -49,19 +43,15 @@ public class PhoneTest {
 
     @Test
     void hasCodeEquals () {
-        Phone first = new Phone();
-        Phone second = new Phone();
-        first.setPhoneNumber("333333333");
-        second.setPhoneNumber("333333333");
+        Phone first = new Phone.Builder().phoneNumber("333333333").build();;
+        Phone second = new Phone.Builder().phoneNumber("333333333").build();;
         Assertions.assertEquals(first.hashCode(), second.hashCode());
     }
 
     @Test
     void hasNotCodeEquals () {
-        Phone first = new Phone();
-        Phone second = new Phone();
-        first.setPhoneNumber("333333332");
-        second.setPhoneNumber("333333333");
+        Phone first = new Phone.Builder().phoneNumber("333333332").build();;
+        Phone second = new Phone.Builder().phoneNumber("333333333").build();;
         Assertions.assertNotEquals(first.hashCode(), second.hashCode());
     }
 }

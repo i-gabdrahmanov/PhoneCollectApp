@@ -6,9 +6,7 @@ import com.dev.alex.phonecollect.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/registration")
@@ -19,10 +17,10 @@ public class RegistrationController {
 
     @GetMapping("/reg")
     public String getRegisterPage() {
-        return "registerPage";
+        return "register";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/sign_up")
     public ResponseEntity<SecureUser> register(UserDTO userCandidate) {
         return ResponseEntity.ok(userService.saveUser(userCandidate)
                 .map(SecureUser::new)

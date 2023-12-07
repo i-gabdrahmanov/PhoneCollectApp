@@ -20,12 +20,12 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
     @Override
     public Optional<User> saveUser(UserDTO userCandidate) {
-        if (userRepository.findUserByLogin(userCandidate.getLogin()).isEmpty()) {
+        if (userRepository.findUserByLogin(userCandidate.getUsername()).isPresent()) {
             throw new RuntimeException("Пользователь уже существует");
         }
             User user = new User();
-            user.setLogin(userCandidate.getLogin());
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            user.setLogin(userCandidate.getUsername());
+            user.setPassword(passwordEncoder.encode(userCandidate.getPassword()));
             user.setRole(userCandidate.getRole());
         return Optional.of(userRepository.save(user));
     }
